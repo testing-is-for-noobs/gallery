@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const faker = require('faker');
 const db = require('../database/index.js');
 
