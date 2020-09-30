@@ -1,13 +1,14 @@
 /* -- App -- */
 .app {
   /* margin: 13rem 0 0 14rem; */
-  /* display: flex;
-  justify-content: center; */
+  display: flex;
+  height: 80vh;
+  justify-content: center;
   background-color: #F8F8F8;
 }
 
 /* -- Gallery -- */
-.container {
+.gallery_container {
   margin-left: 20px;
   display: inline-block;
   /* border: 1px dotted red; */
@@ -16,19 +17,17 @@
   background-color: #FFF;
 }
 
-.gallery {
+.slider {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 1.3rem;
-  position: relative;
 }
 
-.btn_full_screen {
-  position: absolute;
-  right: 0;
-  top: 0;
+.currentImage {
+  width: 800px;
+  height: 650px;
 }
 
 .button {
