@@ -7,10 +7,15 @@ for (let productId = 1; productId <= 2; productId++) {
 
   for (let imgId = 1; imgId <= 13; imgId++) {
     let productDescription = faker.commerce.productDescription();
-    details.push({ name: productDescription, img_url: `https://lego-product-pictures.s3-us-west-1.amazonaws.com/product${productId}-image${imgId}.jpg` });
+    details.push({
+      _id: imgId,
+      name: productDescription,
+      img_url: `https://lego-product-pictures.s3-us-west-1.amazonaws.com/product${productId}-image${imgId}.jpg`,
+    });
   }
 
   galleries.push({
+    pid: productId,
     name: faker.commerce.productName(),
     details,
   });

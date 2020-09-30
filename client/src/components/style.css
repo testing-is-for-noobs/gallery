@@ -1,0 +1,62 @@
+/* -- App -- */
+.app {
+  display: flex;
+}
+
+/* -- Gallery -- */
+.container {
+  margin-left: 20px;
+  display: inline-block;
+  border: 1px solid red;
+  width: 1000px;
+  height: 800px;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px red dotted;
+  /* background: url('https://lego-product-pictures.s3-us-west-1.amazonaws.com/product1-image1.jpg') no-repeat center; */
+  /* backgroundImage: `url(${bg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center', height: '100%', opacity: 0.6 */
+}
+
+button {
+  background: #808080;
+  padding: 10px 12px 25px 12px;
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  width: auto;
+  color:#F4F4F4;
+  text-align: center;
+  font-size: 1.2rem;
+  border: none;
+}
+
+button:hover {
+  color: #808080;
+  background-color: #F4F4F4;
+}
+
+/* -- Gallery Item List -- */
+.galleryItemList {
+  display: inline-block;
+}
+
+/* -- Gallery Item -- */
+.galleryItem {
+  height: 50px;
+  width: 80px;
+}
+
+.galleryItem:hover {
+  border: 1px solid #31A1E0;
+}
+
+.galleryItem > img {
+  height: 100%;
+  width: 100%;
+}
+
