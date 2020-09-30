@@ -1,13 +1,17 @@
 import React from 'react';
-import GalleryItem from './GalleryItem.jsx';
 import styles from './style.css';
+import GalleryItem from './GalleryItem.jsx';
+import Gallery from './Gallery.jsx'
 
-const GalleryItemList = ({galleryImages}) => {
+const GalleryItemList = ({ galleryImages }) => {
   return(
-    <div className={styles.galleryItemList}>
-      {galleryImages.map(image => (
-        <GalleryItem key={image._id} image={image} />
-      ))}
+    <div className={styles.galleries_container}>
+      <div className={styles.galleryItemList}>
+        {galleryImages.map(image => (
+          <GalleryItem key={image._id} image={image} />
+        ))}
+      </div>
+      <Gallery />
     </div>
   )
 }

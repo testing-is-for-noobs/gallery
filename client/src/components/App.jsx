@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import styles from './style.css';
-import Gallery from './Gallery.jsx';
 import GalleryItemList from './GalleryItemList.jsx';
 import pixelAlign from './pixelAlign.png';
 
@@ -29,13 +28,14 @@ class App extends React.Component {
   render() {
     const { galleryImages } = this.state;
     return (
-      <div style={{ background: `url(${pixelAlign})`, height:'100vh', backgroundRepeat: 'no-repeat' }}>
+      <div>
+      {/* <div style={{ background: `url(${pixelAlign})`, height:'100vh', backgroundRepeat: 'no-repeat' }}> */}
         <h1>Gallery MaN gOd B</h1>
         <div className={styles.app}>
           <GalleryItemList galleryImages={galleryImages} />
-          <Gallery />
         </div>
-      </div>
+     {/* </div> */}
+     </div>
     );
   }
 }
