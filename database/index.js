@@ -11,7 +11,7 @@ db.once('open', function() {
 let gallerySchema = new mongoose.Schema({
   pid: Number,
   name: String,
-  details: [{_id: Number, name: String, img_url: String }],
+  details: [{_id: Number, name: String, img_url: String, selected: Boolean}],
 });
 
 let Gallery = mongoose.model('Gallery', gallerySchema);

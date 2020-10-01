@@ -8,29 +8,63 @@
 }
 
 /* -- Gallery -- */
-.gallery_container {
-  margin-left: 20px;
-  display: inline-block;
-  /* border: 1px dotted red; */
-  width: 800px;
-  height: 650px;
-  background-color: #FFF;
-}
 
 .slider {
+  width: 800px;
+  height: 650px;
+  margin-left: 1rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 1.3rem;
+  position: relative;
+  background: #fff;
 }
 
 .currentImage {
   width: 800px;
   height: 650px;
+  object-fit: contain;
 }
 
-.button {
+.full_screen_btn {
+  cursor: pointer;
+  border: 1px solid red;
+}
+
+.full_screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  outline-style: none;
+  border-radius: 50%;
+  background-color: #F8F8F8;
+  cursor: pointer;
+}
+
+.full_screen > img {
+  padding-top: .5rem;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.full_screen_words {
+  padding-top: .3rem;
+  margin: 0;
+  color: #176DB6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: .9rem;
+  width: 5rem;
+}
+
+.slider > a {
   background: #B3B3B3;
   color:#F4F4F4;
   text-align: center;
@@ -47,9 +81,21 @@
   opacity: 0.8;
 }
 
-.button:hover {
+.slider > a:hover {
   color: #B3B3B3;
   background-color: #F4F4F4;
+}
+
+.prev {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+}
+
+.next {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
 }
 
 /* -- Gallery Item List -- */
@@ -61,21 +107,38 @@
 
 .galleryItemList {
   display: inline-block;
-  height: 420px;
+  height: 34rem;
   overflow: hidden;
 }
 
 /* -- Gallery Item -- */
 .galleryItem {
   margin: 1rem 0;
+  width: 4.0625rem;
+  height: 2.8125rem;
+  border: 3px solid transparent;
+}
+
+.galleryItem:hover {
+  margin: 1rem 0;
+  width: 4.0625rem;
+  height: 2.8125rem;
+  border: 3px solid #31A1E0;
+}
+
+/* .no_border {
+  margin: 1rem 0;
   height: 50px;
   width: 80px;
   border: 1px solid transparent;
 }
 
-.galleryItem:hover {
+.border {
+  margin: 1rem 0;
+  height: 50px;
+  width: 80px;
   border: 1px solid #31A1E0;
-}
+} */
 
 .galleryItem > img {
   height: 100%;

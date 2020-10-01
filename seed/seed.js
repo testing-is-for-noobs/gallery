@@ -11,6 +11,7 @@ for (let productId = 1; productId <= 2; productId++) {
       _id: imgId,
       name: productDescription,
       img_url: `https://lego-product-pictures.s3-us-west-1.amazonaws.com/product${productId}-image${imgId}.jpg`,
+      selected: false,
     });
   }
 

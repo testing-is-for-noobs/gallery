@@ -30,7 +30,6 @@ class App extends React.Component {
   }
 
   updateCurrentImage(image) {
-    console.log('click');
     this.setState({
       currentImage: image,
     });
