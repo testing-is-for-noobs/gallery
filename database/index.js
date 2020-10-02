@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/galleryDatabase', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/gallerydatabase', { useNewUrlParser: true });
 
 const db = mongoose.connection;
 db.on('err', console.error.bind(console, 'connection error:'));
@@ -9,8 +9,9 @@ db.once('open', function() {
 });
 
 let gallerySchema = new mongoose.Schema({
+  pid: Number,
   name: String,
-  details: [{ name: String, img_url: String }],
+  details: [{_id: Number, name: String, img_url: String, selected: Boolean}],
 });
 
 let Gallery = mongoose.model('Gallery', gallerySchema);

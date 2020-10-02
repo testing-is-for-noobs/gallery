@@ -1,0 +1,84 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn test
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  12.18.2
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/henrylo/Documents/Work/Hack_Reactor/React/gallery/package.json: Unexpected token / in JSON at position 328
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "gallery",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest",
+      "react-dev": "webpack -d --watch",
+      "server-dev": "nodemon server/index.js",
+      "seed": "node seed/seed.js"
+    },
+    "jest": {
+      "setupFilesAfterEnv": [
+        "<rootDir>/tests/setup.js"
+      ],
+      // "testPathIgnorePatterns": [
+      //   "<rootDir>/node_modules/"
+      // ]
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Henry-C-Lo/gallery.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Henry-C-Lo/gallery/issues"
+    },
+    "homepage": "https://github.com/Henry-C-Lo/gallery#readme",
+    "devDependencies": {
+      "eslint": "^7.9.0",
+      "eslint-config-airbnb": "^18.2.0",
+      "eslint-plugin-import": "^2.22.0",
+      "eslint-plugin-jsx-a11y": "^6.3.1",
+      "eslint-plugin-react": "^7.21.1",
+      "eslint-plugin-react-hooks": "^4.1.2",
+      "webpack": "^4.44.2",
+      "webpack-cli": "^3.3.12"
+    },
+    "dependencies": {
+      "axios": "^0.20.0",
+      "babel-loader": "^8.1.0",
+      "enzyme": "^3.11.0",
+      "enzyme-adapter-react-16": "^1.15.5",
+      "express": "^4.17.1",
+      "faker": "^5.1.0",
+      "jest": "^26.4.2",
+      "mongoose": "^5.10.6",
+      "nodemon": "^2.0.4",
+      "react": "^16.13.1",
+      "react-dom": "^16.13.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
