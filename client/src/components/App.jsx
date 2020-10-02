@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import styles from './style.css';
-import GalleryItemList from './GalleryItemList.jsx';
-import Gallery from './Gallery.jsx'
+import GalleryItemList from './GalleryItemList';
+import Gallery from './Gallery';
 import pixelAlign from './pixelAlign.png';
 
 class App extends React.Component {
@@ -11,6 +11,7 @@ class App extends React.Component {
     this.state = {
       galleryImages: [],
       currentImage: '',
+      currentIndex: 0,
     };
     this.updateCurrentImage = this.updateCurrentImage.bind(this);
     this.handlePrevClick = this.handlePrevClick.bind(this);
@@ -36,15 +37,43 @@ class App extends React.Component {
   }
 
   handlePrevClick() {
-    console.log('prev click')
+    console.log('prev click');
+    const { currentIndex, galleryImages } = this.state;
+    let index = currentIndex;
+    let length = galleryImages.length;
+
+    if (index < 1) {
+      index = length - 1;
+    } else {
+      index -= 1;
+    }
+
+    this.setState({
+      currentIndex: index,
+      currentImage: galleryImages[index].img_url,
+    }, () => {console.log(currentIndex)} );
   }
 
   handleNextClick() {
-    console.log('next click')
+    console.log('next click');
+    const { currentIndex, galleryImages } = this.state;
+    let index = currentIndex;
+    let length = galleryImages.length;
+
+    if (index === length - 1) {
+      index = 0;
+    } else {
+      index += 1;
+    }
+
+    this.setState({
+      currentIndex: index,
+      currentImage: galleryImages[index].img_url,
+    }, () => {console.log(currentIndex)} );
   }
 
   render() {
-    const { galleryImages, currentImage } = this.state;
+    const { galleryImages, currentImage, currentIndex } = this.state;
     return (
       <div className={styles.app}>
       {/* <div style={{ background: `url(${pixelAlign})`, height:'100vh', backgroundRepeat: 'no-repeat' }}> */}
@@ -52,11 +81,18 @@ class App extends React.Component {
         <div className={styles.galleries_container}>
           <GalleryItemList
             galleryImages={galleryImages}
+            currentIndex={currentIndex}
+            handlePrevClick={this.handlePrevClick}
+            handleNextClick={this.handleNextClick}
             updateCurrentImage={this.updateCurrentImage}
           />
         </div>
         <div>
-          <Gallery currentImage={currentImage} />
+          <Gallery
+            currentImage={currentImage}
+            handlePrevClick={this.handlePrevClick}
+            handleNextClick={this.handleNextClick}
+          />
         </div>
      {/* </div> */}
      </div>

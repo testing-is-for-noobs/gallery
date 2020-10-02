@@ -7,6 +7,12 @@
   background-color: #F8F8F8;
 }
 
+.galleries_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 /* -- Gallery -- */
 
 .slider {
@@ -30,7 +36,6 @@
 
 .full_screen_btn {
   cursor: pointer;
-  border: 1px solid red;
 }
 
 .full_screen {
@@ -40,17 +45,17 @@
   position: absolute;
   top: 1rem;
   right: 2rem;
-  width: 2.5rem;
-  height: 2.5rem;
+  min-width: 2rem;
+  min-height: 2rem;
   border: none;
   outline-style: none;
   border-radius: 50%;
-  background-color: #F8F8F8;
+  background-color: #F8F8F8 !important;
   cursor: pointer;
 }
 
 .full_screen > img {
-  padding-top: .5rem;
+  padding-top: 1.3rem;
   max-width: 80%;
   max-height: 80%;
 }
@@ -62,14 +67,15 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: .9rem;
   width: 5rem;
+  font-weight: 200;
 }
 
-.slider > a {
+.slider > button {
   background: #B3B3B3;
   color:#F4F4F4;
   text-align: center;
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 100%;
   display: inline-flex;
   flex-direction: column;
@@ -79,9 +85,11 @@
   font-weight: bold;
   text-decoration: none;
   opacity: 0.8;
+  border: none;
+  outline-style: none;
 }
 
-.slider > a:hover {
+.slider > button:hover {
   color: #B3B3B3;
   background-color: #F4F4F4;
 }
@@ -99,16 +107,26 @@
 }
 
 /* -- Gallery Item List -- */
-.galleries_container {
+.itemList_container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  align-items: baseline;
 }
 
 .galleryItemList {
-  display: inline-block;
-  height: 34rem;
-  overflow: hidden;
+  height: 33rem;
+  overflow-y: scroll;
+}
+
+.side_prev,
+.side_next {
+  margin-left: 1.2rem;
+  outline-style: none;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  font-weight: 300;
 }
 
 /* -- Gallery Item -- */
@@ -116,27 +134,27 @@
   margin: 1rem 0;
   width: 4.0625rem;
   height: 2.8125rem;
-  border: 3px solid transparent;
+  border: 2px solid #E3E3E3;
 }
 
 .galleryItem:hover {
   margin: 1rem 0;
   width: 4.0625rem;
   height: 2.8125rem;
-  border: 3px solid #31A1E0;
+  border: 2px solid #31A1E0;
 }
 
 /* .no_border {
   margin: 1rem 0;
-  height: 50px;
-  width: 80px;
-  border: 1px solid transparent;
+  width: 4.0625rem;
+  height: 2.8125rem;
+  border: 2px solid #E3E3E3;
 }
 
 .border {
   margin: 1rem 0;
-  height: 50px;
-  width: 80px;
+  width: 4.0625rem;
+  height: 2.8125rem;
   border: 1px solid #31A1E0;
 } */
 

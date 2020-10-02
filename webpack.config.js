@@ -39,5 +39,7 @@ module.exports = {
         loader: 'url-loader?limit=8192',
       }
     ]
-  }
+  },
+  resolve: { extensions: ['.js', '.jsx'] },
 }
+
