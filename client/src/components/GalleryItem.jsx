@@ -12,16 +12,10 @@ class GalleryItem extends React.Component {
   }
 
   handleGalleryClick() {
-    const { image, currentIndex, updateCurrentImage } = this.props;
+    const { image, currentIndex, updateCurrentImage, currentBorder } = this.props;
     console.log(image.img_url);
     const imageURL = image.img_url;
     updateCurrentImage(imageURL);
-
-    if (currentIndex === image._id + 1) {
-      this.setState({
-        border: true
-      });
-    }
   }
 
   render() {

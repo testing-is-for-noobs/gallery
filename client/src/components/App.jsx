@@ -12,7 +12,23 @@ class App extends React.Component {
       galleryImages: [],
       currentImage: '',
       currentIndex: 0,
+      currentBorder: {
+        0: true,
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+        9: false,
+        10: false,
+        11: false,
+        12: false,
+      },
     };
+
     this.updateCurrentImage = this.updateCurrentImage.bind(this);
     this.handlePrevClick = this.handlePrevClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
@@ -44,10 +60,11 @@ class App extends React.Component {
 
     if (index < 1) {
       index = length - 1;
+      document.getElementById('galleryItemList').scrollBy(0, 350);
     } else {
       index -= 1;
+      document.getElementById('galleryItemList').scrollBy(0, -65);
     }
-
     this.setState({
       currentIndex: index,
       currentImage: galleryImages[index].img_url,
@@ -62,18 +79,19 @@ class App extends React.Component {
 
     if (index === length - 1) {
       index = 0;
+      document.getElementById('galleryItemList').scrollBy(0, -350);
     } else {
       index += 1;
+      document.getElementById('galleryItemList').scrollBy(0, 65);
     }
-
     this.setState({
       currentIndex: index,
       currentImage: galleryImages[index].img_url,
-    }, () => {console.log(currentIndex)} );
+    }, () => { console.log(currentIndex); });
   }
 
   render() {
-    const { galleryImages, currentImage, currentIndex } = this.state;
+    const { galleryImages, currentImage, currentIndex, currentBorder } = this.state;
     return (
       <div className={styles.app}>
       {/* <div style={{ background: `url(${pixelAlign})`, height:'100vh', backgroundRepeat: 'no-repeat' }}> */}
@@ -85,6 +103,7 @@ class App extends React.Component {
             handlePrevClick={this.handlePrevClick}
             handleNextClick={this.handleNextClick}
             updateCurrentImage={this.updateCurrentImage}
+            currentBorder={currentBorder}
           />
         </div>
         <div>
