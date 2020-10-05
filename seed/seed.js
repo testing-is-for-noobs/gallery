@@ -2,16 +2,15 @@ const faker = require('faker');
 const db = require('../database/index.js');
 
 const galleries = [];
-for (let productId = 1; productId <= 2; productId++) {
-  let details = [];
+for (let productId = 1; productId <= 2; productId += 1) {
+  const details = [];
 
-  for (let imgId = 1; imgId <= 13; imgId++) {
-    let productDescription = faker.commerce.productDescription();
+  for (let imgId = 1; imgId <= 13; imgId += 1) {
+    const productDescription = faker.commerce.productDescription();
     details.push({
       _id: imgId,
       name: productDescription,
       img_url: `https://lego-product-pictures.s3-us-west-1.amazonaws.com/product${productId}-image${imgId}.jpg`,
-      selected: false,
     });
   }
 

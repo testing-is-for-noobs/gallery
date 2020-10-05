@@ -2,7 +2,7 @@
 .app {
   /* margin: 13rem 0 0 14rem; */
   display: flex;
-  height: 80vh;
+  height: 100vh;
   justify-content: center;
   background-color: #F8F8F8;
 }
@@ -16,6 +16,7 @@
 /* -- Gallery -- */
 
 .slider {
+  transition: 200ms ease;
   width: 800px;
   height: 650px;
   margin-left: 1rem;
@@ -26,6 +27,26 @@
   position: relative;
   background: #fff;
   overflow: hidden;
+}
+
+.sliderFullScreen {
+  transition: 200ms ease;
+  width: auto ;
+  height: 100vh;
+  margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+}
+
+.currentImageContainer {
+  border: none;
+  background-color: transparent;
+  outline-style: none;
 }
 
 .currentImage {
@@ -44,10 +65,6 @@
   cursor: zoom-out;
 }
 
-.full_screen_btn {
-  cursor: pointer;
-}
-
 .full_screen {
   display: flex;
   flex-direction: column;
@@ -55,19 +72,38 @@
   position: absolute;
   top: 1rem;
   right: 2rem;
-  min-width: 2rem;
-  min-height: 2rem;
+  max-width: 2rem;
+  max-height: 2rem;
   border: none;
   outline-style: none;
   border-radius: 50%;
-  background-color: #F8F8F8 !important;
+  background-color: #F8F8F8;
   cursor: pointer;
 }
 
-.full_screen > img {
-  padding-top: 1.3rem;
+.fullScreen_icon {
+  padding-top: .5rem;
   max-width: 80%;
   max-height: 80%;
+  object-fit: contain;
+}
+
+.fullScreen_icon_expand{
+  padding-top: .5rem;
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.fullScreen_icon_close{
+  padding-top: .5rem;
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.no_display {
+  display: none;
 }
 
 .full_screen_words {
@@ -80,7 +116,7 @@
   font-weight: 200;
 }
 
-.slider > button {
+.slide_btn {
   background: #B3B3B3;
   color:#F4F4F4;
   text-align: center;
@@ -99,7 +135,7 @@
   outline-style: none;
 }
 
-.slider > button:hover {
+.slide_btn:hover {
   color: #B3B3B3;
   background-color: #F4F4F4;
 }
@@ -146,26 +182,20 @@
 }
 
 /* -- Gallery Item -- */
-/* .galleryItem {
-  margin: 1rem 0;
+.galleryItem {
   width: 4.0625rem;
   height: 2.8125rem;
-  border: 2px solid #E3E3E3;
+  background-color: white;
 }
-
-.galleryItem:hover {
-  margin: 1rem 0;
-  width: 4.0625rem;
-  height: 2.8125rem;
-  border: 2px solid #31A1E0;
-} */
 
 .galleryItem:first-child {
   margin-top: 0;
+  padding-top: 0;
 }
 
 .galleryItem:last-child {
   margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .galleryItem > img {

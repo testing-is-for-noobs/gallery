@@ -7,8 +7,8 @@ describe('App', () => {
   test('should render', () => {
     const wrapper = shallow(
       <App />
-    )
+    );
 
     expect(wrapper.exists()).toBeTruthy();
-  })
+  });
 })
