@@ -3,7 +3,6 @@ import axios from 'axios';
 import styles from './style.css';
 import GalleryItemList from './GalleryItemList';
 import Gallery from './Gallery';
-import pixelAlign from './pixelAlign.png';
 
 class App extends React.Component {
   constructor(props) {
@@ -30,8 +29,11 @@ class App extends React.Component {
     };
 
     this.updateCurrentImage = this.updateCurrentImage.bind(this);
+    this.updateCurrentBorder = this.updateCurrentBorder.bind(this);
     this.handlePrevClick = this.handlePrevClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
+    this.handleScrollUp = this.handleScrollUp.bind(this);
+    this.handleScrollDown = this.handleScrollDown.bind(this);
   }
 
   componentDidMount() {
@@ -52,14 +54,27 @@ class App extends React.Component {
     });
   }
 
-  handlePrevClick() {
-    console.log('prev click');
+  updateCurrentBorder(imageId) {
+    console.log(imageId);
+    const { currentBorder } = this.state;
+    const newState = { ...currentBorder };
+    for (const id in newState) {
+      if (id !== imageId) {
+        newState[id] = false;
+      }
+    }
+    newState[imageId] = true;
+    this.setState({
+      currentBorder: newState,
+    });
+  }
+
+  handleScrollUp() {
     const { currentIndex, galleryImages } = this.state;
     let index = currentIndex;
-    let length = galleryImages.length;
 
     if (index < 1) {
-      index = length - 1;
+      index = galleryImages.length - 1;
       document.getElementById('galleryItemList').scrollBy(0, 350);
     } else {
       index -= 1;
@@ -67,17 +82,14 @@ class App extends React.Component {
     }
     this.setState({
       currentIndex: index,
-      currentImage: galleryImages[index].img_url,
-    }, () => {console.log(currentIndex)} );
+    }, () => console.log(currentIndex));
   }
 
-  handleNextClick() {
-    console.log('next click');
+  handleScrollDown() {
     const { currentIndex, galleryImages } = this.state;
     let index = currentIndex;
-    let length = galleryImages.length;
 
-    if (index === length - 1) {
+    if (index === galleryImages.length - 1) {
       index = 0;
       document.getElementById('galleryItemList').scrollBy(0, -350);
     } else {
@@ -86,24 +98,63 @@ class App extends React.Component {
     }
     this.setState({
       currentIndex: index,
+    }, () => console.log(currentIndex));
+  }
+
+  handlePrevClick() {
+    console.log('prev click');
+    const { currentIndex, galleryImages } = this.state;
+    let index = currentIndex;
+
+    if (index < 1) {
+      index = galleryImages.length - 1;
+      document.getElementById('galleryItemList').scrollBy(0, 350);
+    } else {
+      index -= 1;
+      document.getElementById('galleryItemList').scrollBy(0, -65);
+    }
+    this.updateCurrentBorder(currentIndex - 1);
+    this.setState({
+      currentIndex: index,
       currentImage: galleryImages[index].img_url,
-    }, () => { console.log(currentIndex); });
+    }, () => console.log(currentIndex));
+  }
+
+  handleNextClick() {
+    console.log('next click');
+    const { currentIndex, galleryImages } = this.state;
+    let index = currentIndex;
+
+    if (index === galleryImages.length - 1) {
+      index = 0;
+      document.getElementById('galleryItemList').scrollBy(0, -350);
+    } else {
+      index += 1;
+      document.getElementById('galleryItemList').scrollBy(0, 65);
+    }
+    this.updateCurrentBorder(currentIndex + 1);
+    this.setState({
+      currentIndex: index,
+      currentImage: galleryImages[index].img_url,
+    }, () => console.log(currentIndex));
   }
 
   render() {
-    const { galleryImages, currentImage, currentIndex, currentBorder } = this.state;
+    const {
+      galleryImages, currentImage, currentIndex, currentBorder,
+    } = this.state;
     return (
       <div className={styles.app}>
-      {/* <div style={{ background: `url(${pixelAlign})`, height:'100vh', backgroundRepeat: 'no-repeat' }}> */}
-        {/* <h1>Gallery MaN gOd B</h1> */}
+        <h1>Gallery MaN gOd B</h1>
         <div className={styles.galleries_container}>
           <GalleryItemList
             galleryImages={galleryImages}
             currentIndex={currentIndex}
-            handlePrevClick={this.handlePrevClick}
-            handleNextClick={this.handleNextClick}
+            handleScrollUp={this.handleScrollUp}
+            handleScrollDown={this.handleScrollDown}
             updateCurrentImage={this.updateCurrentImage}
             currentBorder={currentBorder}
+            updateCurrentBorder={this.updateCurrentBorder}
           />
         </div>
         <div>
@@ -113,8 +164,7 @@ class App extends React.Component {
             handleNextClick={this.handleNextClick}
           />
         </div>
-     {/* </div> */}
-     </div>
+      </div>
     );
   }
 }
