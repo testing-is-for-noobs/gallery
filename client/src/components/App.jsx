@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import axios from 'axios';
 import styles from './style.css';
@@ -37,7 +38,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/1/getGalleries')
+    axios.get('/getGalleries/1')
       .then((res) => {
         this.setState({
           galleryImages: res.data[0].details,
