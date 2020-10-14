@@ -25,6 +25,6 @@ db.Gallery.insertMany(galleries, (err, results) => {
   if (err) {
     console.error('[FAILED] insert 100 fake galleries: ', err);
   } else {
-    console.log('[SUCCESS] insert 100 fake galleries data: ', results[0].details);
+    console.log('[SUCCESS] insert 100 fake galleries data: ', results[0]);
   }
 });

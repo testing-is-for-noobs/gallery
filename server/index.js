@@ -36,6 +36,7 @@ app.delete('/products/:pid', (req, res) => {
   res.status(200).send('DELETE request');
   console.log(`DELETE request for product ${id}`);
 });
+
 // UPDATE
 app.put('/products/:pid', (req, res) => {
   const id = req.params.pid;
