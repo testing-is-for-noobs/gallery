@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.static(DIST_DIR));
 
-// RUN
+// READ
 app.get('/products/:pid', (req, res) => {
   // db.Gallery.find({ pid: req.params.pid }, (err, galleries) => {
   //   if (err) {
