@@ -19,6 +19,10 @@ app.get('/getGalleries/:pid', (req, res) => {
   });
 });
 
+app.post('/postGalleries', (req, res) => {
+  res.status(200).send(res);
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
