@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.static(DIST_DIR));
 
-app.get('/:pid/getGalleries', (req, res) => {
+app.get('/getGalleries/:pid', (req, res) => {
   db.Gallery.find({ pid: req.params.pid }, (err, galleries) => {
     if (err) {
       res.status(404).send(err);
