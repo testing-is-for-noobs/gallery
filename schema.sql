@@ -1,0 +1,5 @@
+DROP DATABASE IF EXIST lego;
+
+CREATE DATABASE lego;
+
+USE lego;
