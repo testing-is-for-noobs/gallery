@@ -9,12 +9,14 @@ db.once('open', () => {
   console.log('successfully connected to mangoDB');
 });
 
+// Schema
 const gallerySchema = new mongoose.Schema({
   pid: Number,
   name: String,
   details: [{ _id: Number, name: String, img_url: String }],
 });
 
+// Model
 const Gallery = mongoose.model('Gallery', gallerySchema);
 
 module.exports = {
