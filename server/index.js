@@ -2,7 +2,7 @@
 const path = require('path');
 const express = require('express');
 
-const db = require('../database/index.js');
+const queries = require('../database/index.js');
 const testData = require('./testData.js');
 
 const DIST_DIR = path.join(__dirname, '/../client/dist');
@@ -15,25 +15,18 @@ app.use(express.static(DIST_DIR));
 // READ
 app.get('/products/:pid', (req, res) => {
   const { pid } = req.params;
-  db.Gallery.find({ pid }, (err, galleries) => {
+  queries.getGallery(pid, (err, galleries) => {
     if (err) {
       res.status(404).send(err);
     } else {
       res.status(200).send(galleries);
     }
   });
-  // const id = req.params.pid;
-  // res.status(200).send('GET request');
-  // console.log(`GET request for product ${id}`);
 });
 
 // CREATE
 app.post('/products', (req, res) => {
-  // var testData2 = {
-  //   pid: 123456,
-  // };
-
-  db.Gallery.create(testData, (err, galleries) => {
+  queries.createGallery(testData, (err, galleries) => {
     if (err) {
       res.status(404).send(err);
     } else {
@@ -41,8 +34,6 @@ app.post('/products', (req, res) => {
       console.log(testData);
     }
   });
-  // res.status(200).send('POST request');
-  // console.log('POST request for new product');
 });
 
 // DELETE

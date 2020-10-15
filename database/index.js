@@ -19,6 +19,30 @@ const gallerySchema = new mongoose.Schema({
 // Model
 const Gallery = mongoose.model('Gallery', gallerySchema);
 
+/* CRUD FUNCTIONS */
+
+const getGallery = (pid, callback) => {
+  Gallery.find({ pid }, (err, galleries) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, galleries);
+    }
+  });
+};
+
+const createGallery = (data, callback) => {
+  Gallery.create(data, (err, galleries) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, galleries);
+    }
+  });
+};
+
 module.exports = {
   Gallery,
+  getGallery,
+  createGallery,
 };
