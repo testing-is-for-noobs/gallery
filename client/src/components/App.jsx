@@ -38,7 +38,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/getGalleries/1')
+    axios.get('/products/1')
       .then((res) => {
         this.setState({
           galleryImages: res.data[0].details,
