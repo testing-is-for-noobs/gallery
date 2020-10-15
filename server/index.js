@@ -29,6 +29,10 @@ app.get('/products/:pid', (req, res) => {
 
 // CREATE
 app.post('/products', (req, res) => {
+  // var testData2 = {
+  //   pid: 123456,
+  // };
+
   db.Gallery.create(testData, (err, galleries) => {
     if (err) {
       res.status(404).send(err);
