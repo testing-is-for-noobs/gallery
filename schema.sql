@@ -12,8 +12,8 @@ CREATE TABLE products (
 CREATE TABLE images (
   image_id SERIAL PRIMARY KEY,
   product_id INT,
-  image_description TEXT UNIQUE NOT NULL,
   image TEXT NOT NULL,
+  image_description TEXT UNIQUE NOT NULL,
   FOREIGN KEY (product_id)
   REFERENCES products (product_id)
 );
