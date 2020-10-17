@@ -4,8 +4,16 @@ CREATE DATABASE lego;
 
 USE lego;
 
-CREATE TABLE [IF NOT EXISTS] products (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR (150) UNIQUE NOT NULL,
-  images VARCHAR [],
+CREATE TABLE products (
+  product_id SERIAL PRIMARY KEY,
+  product_name TEXT UNIQUE NOT NULL,
+);
+
+CREATE TABLE images (
+  image_id SERIAL PRIMARY KEY,
+  product_id INT,
+  image_description TEXT UNIQUE NOT NULL,
+  image TEXT NOT NULL,
+  FOREIGN KEY (product_id)
+  REFERENCES products (product_id)
 );
