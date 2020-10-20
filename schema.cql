@@ -12,5 +12,3 @@ CREATE TABLE lego.products (
   image_description text,
   PRIMARY KEY (product_id, image_id)
 );
-
-

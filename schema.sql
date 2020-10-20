@@ -4,12 +4,10 @@ CREATE DATABASE lego;
 
 \c lego;
 
-CREATE TABLE productsInfo (
+CREATE TABLE products (
   product_id SERIAL PRIMARY KEY,
   product_name TEXT UNIQUE NOT NULL,
-  images TEXT [],
-  image_ids NUMERIC [],
-  image_descriptions TEXT []
+  gallery TEXT []
 );
 
 -- CREATE TABLE products (
@@ -26,10 +24,34 @@ CREATE TABLE productsInfo (
 --     REFERENCES products (product_id)
 -- );
 
-COPY productsInfo (product_id, product_name, images, image_ids, image_descriptions) FROM '/Users/rms/Desktop/HR/hrsjo/SDC/gallery/productsInfo.csv'DELIMITER '|'CSV HEADER;
+/*
+Should I change my Schema??
 
--- COPY master_table (product_id, product_name) TO 'products.csv';
+1. One table
+  product_id
+  product_name
+  gallery: objects in array
+  for example,
+  gallery:[
+    {id: 1
+    description: good
+    images: [url1, url2, ....]
+    },
+   {id: 2
+    description: bad
+    images: [url1, url2, ....]
+    },
+    .
+    .
+    .
+  ]
+*/
 
--- COPY products.info (department, category, subcategory, brand, price, id) TO 'recommendations.csv';
 
--- COPY products.recommendations (department, category, subcategory, brand, price, id) FROM 'recommendations.csv';
+COPY products (product_id, product_name, gallery) FROM '/Users/rms/Desktop/HR/hrsjo/SDC/gallery/productsInfo.csv'DELIMITER '|'CSV HEADER;
+
+-- COPY productsInfo (product_id, product_name) TO '/Users/rms/Desktop/HR/hrsjo/SDC/gallery/products.csv';
+-- COPY products (product_id, product_name) FROM '/Users/rms/Desktop/HR/hrsjo/SDC/gallery/products.csv';
+
+-- COPY productsInfo (image_id, product_name) TO '/Users/rms/Desktop/HR/hrsjo/SDC/gallery/images.csv';
+-- COPY images (product_id, product_name) FROM '/Users/rms/Desktop/HR/hrsjo/SDC/gallery/images.csv';
