@@ -48,7 +48,7 @@ Should I change my Schema??
 */
 
 
-COPY products (product_id, product_name, gallery) FROM '/Users/rms/Desktop/HR/hrsjo/SDC/gallery/productsInfo.csv'DELIMITER '|'CSV HEADER;
+COPY products (product_id, product_name, gallery) FROM '/Users/rms/Desktop/HR/hrsjo/SDC/gallery/productsPostgres.csv'DELIMITER '|'CSV HEADER;
 
 -- COPY productsInfo (product_id, product_name) TO '/Users/rms/Desktop/HR/hrsjo/SDC/gallery/products.csv';
 -- COPY products (product_id, product_name) FROM '/Users/rms/Desktop/HR/hrsjo/SDC/gallery/products.csv';
