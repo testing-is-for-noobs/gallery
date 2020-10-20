@@ -1,4 +1,4 @@
-DROP KEYSPACE lego;
+DROP KEYSPACE IF EXISTS lego;
 
 CREATE KEYSPACE lego
   WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3'}
