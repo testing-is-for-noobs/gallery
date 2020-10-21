@@ -2,7 +2,7 @@
 const faker = require('faker');
 const fs = require('fs');
 
-const records = 1000;
+const records = 10000000;
 const csv = fs.createWriteStream('productsCassandra.csv');
 csv.write('product_id|product_name|image|image_id|image_description\n');
 
@@ -12,6 +12,9 @@ const generateData = (file, callback) => {
   const seed = () => {
     let status = true;
     while (count < records && status === true) {
+      if ((count % 100000) === 0) {
+        console.log('COUNT : ', count);
+      }
       count += 1;
       const product_id = count;
       const product_name = faker.commerce.productName();
