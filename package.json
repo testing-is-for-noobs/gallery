@@ -8,6 +8,7 @@
     "react-dev": "webpack -d --watch",
     "server:mongodb": "nodemon server/index.js",
     "server:cassandra": "nodemon server/cassandra.js",
+    "server:postgres": "nodemon server/postgres.js",
     "seed": "node seed/seed.js",
     "data:sql": "node generator/postgresGenerator.js",
     "data:cql": "node generator/cassandraGenerator.js",

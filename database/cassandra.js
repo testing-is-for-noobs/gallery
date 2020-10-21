@@ -7,8 +7,8 @@ const client = new cassandra.Client({
 });
 
 const getProduct = (pid, callback) => {
-  const query = 'SELECT image_id,image,image_description FROM products WHERE product_id = ?';
-  client.execute(query, [pid], { prepare: true })
+  const selectQuery = 'SELECT image_id,image,image_description FROM products WHERE product_id = ?';
+  client.execute(selectQuery, [pid], { prepare: true })
     .then((result) => callback(null, result.rows));
 };
 
