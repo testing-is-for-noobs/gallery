@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 
-const CS = require('../database/cassandra.js');
+const cassandra = require('../database/cassandra.js');
 
 const DIST_DIR = path.join(__dirname, '/../client/dist');
 
@@ -17,7 +17,7 @@ app.use(morgan('dev'));
 // READ
 app.get('/products/:pid', (req, res) => {
   const { pid } = req.params;
-  CS.getProduct(pid, (err, products) => {
+  cassandra.getProduct(pid, (err, products) => {
     if (err) {
       res.status(404).send(err);
     } else {
