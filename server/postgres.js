@@ -10,8 +10,10 @@ const port = 9043;
 const app = express();
 
 app.use(express.static(DIST_DIR));
+
 // FOR POSTGRES
 // READ
+
 app.get('/products/:pid', (req, res) => {
   const { pid } = req.params;
   postgres.getGallery(pid, (err, result) => {
@@ -24,10 +26,16 @@ app.get('/products/:pid', (req, res) => {
   });
 });
 
+// app.get('/products/:pid', (req, res) => {
+//   const { pid } = req.params;
+//   postgres.getGallery(pid)
+//     .then((result) => { res.stats(200).send(result); })
+//     .catch((err) => { res.status(400).send(err); });
+// });
+
 // CREATE
 app.post('/products', (req, res) => {
-  const id = req.params.pid;
-  res.status(200).send('DELETE request');
+  res.status(200).send('POST request');
   console.log('POST request for product');
 });
 

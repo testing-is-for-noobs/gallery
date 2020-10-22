@@ -26,6 +26,26 @@ app.get('/products/:pid', (req, res) => {
   });
 });
 
+// CREATE
+app.post('/products', (req, res) => {
+  res.status(200).send('POST request');
+  console.log('POST request for product');
+});
+
+// DELETE
+app.delete('/products/:pid', (req, res) => {
+  const id = req.params.pid;
+  res.status(200).send('DELETE request');
+  console.log(`DELETE request for product ${id}`);
+});
+
+// UPDATE
+app.put('/products/:pid', (req, res) => {
+  const id = req.params.pid;
+  res.status(200).send('PUT request');
+  console.log(`PUT request for product ${id}`);
+});
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });

@@ -11,13 +11,9 @@ pool.connect()
   .catch((err) => console.log('POST Connect Error : ', err));
 
 const getGallery = (pid, callback) => {
-  pool.query(`SELECT gallery FROM products WHERE product_id = ${pid}`, (err, result) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, result.rows);
-    }
-  });
+  pool.query(`SELECT gallery FROM products WHERE product_id = ${pid}`)
+    .then((result) => callback(null, result.rows))
+    .catch((err) => callback(err));
 };
 
 module.exports = {
