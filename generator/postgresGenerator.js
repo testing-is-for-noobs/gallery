@@ -2,7 +2,7 @@
 const faker = require('faker');
 const fs = require('fs');
 
-const records = 1000000;
+const records = 10;
 const csv = fs.createWriteStream('productsPostgres.csv');
 csv.write('product_id|product_name|gallery\n');
 
@@ -28,7 +28,7 @@ const generateData = (file, callback) => {
         imageInfo.description = descriptions[i];
         gallery.push(imageInfo);
       }
-      const stringifyGallery = JSON.stringify(gallery).replace(/\[/g, '{').replace(/]/g, '}');
+      const stringifyGallery = JSON.stringify(gallery).replace(/"/g, '"""');
 
       const data = `${product_id}|${product_name}|${stringifyGallery}\n`;
       if (count === records) {

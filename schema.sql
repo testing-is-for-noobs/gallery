@@ -7,7 +7,7 @@ CREATE DATABASE lego;
 CREATE TABLE products (
   product_id SERIAL PRIMARY KEY,
   product_name TEXT NOT NULL,
-  gallery TEXT []
+  gallery jsonb
 );
 
 -- CREATE TABLE products (
