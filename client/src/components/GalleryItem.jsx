@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './style.css';
@@ -8,17 +11,17 @@ const GalleryItem = ({
   updateCurrentBorder,
 }) => {
   function handleGalleryClick() {
-    console.log(image.img_url);
-    const imageURL = image.img_url;
+    // console.log(image.image);
+    const imageURL = image.image;
     updateCurrentImage(imageURL);
-    updateCurrentBorder(image._id - 1);
+    updateCurrentBorder(image.id - 1);
   }
 
   return (
     <div className={styles.galleryItem}>
       <img
-        src={image.img_url}
-        alt={image.name}
+        src={image.image}
+        alt={image.description}
         onClick={() => { handleGalleryClick(); }}
       />
     </div>

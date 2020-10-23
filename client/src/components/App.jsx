@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-console */
 import React from 'react';
 import axios from 'axios';
@@ -41,9 +42,9 @@ class App extends React.Component {
     axios.get('/products/1')
       .then((res) => {
         this.setState({
-          galleryImages: res.data[0].details,
-          currentImage: res.data[0].details[0].img_url,
-        }, () => console.log('App.jsx - galleryImages state: ', this.state));
+          galleryImages: res.data[0].gallery,
+          currentImage: res.data[0].gallery[0].image,
+        });
       }).catch((err) => {
         console.error('[FAILED] get request from App.jsx: ', err);
       });
@@ -56,7 +57,7 @@ class App extends React.Component {
   }
 
   updateCurrentBorder(imageId) {
-    console.log(imageId);
+    // console.log(imageId);
     const { currentBorder } = this.state;
     const newState = { ...currentBorder };
     for (const id in newState) {
@@ -146,7 +147,7 @@ class App extends React.Component {
     } = this.state;
     return (
       <div className={styles.app}>
-        <h1>Gallery MaN gOd B</h1>
+        <h1>unZWILLING</h1>
         <div className={styles.galleries_container}>
           <GalleryItemList
             galleryImages={galleryImages}
