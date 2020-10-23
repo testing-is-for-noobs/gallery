@@ -19,8 +19,8 @@ const GalleryItemList = ({
     <div id="galleryItemList" className={styles.galleryItemList}>
       {galleryImages.map((image) => (
         <div
-          key={image._id}
-          className={currentBorder[image._id - 1] ? styles.border : styles.no_border}
+          key={image.id}
+          className={currentBorder[image.id - 1] ? styles.border : styles.no_border}
         >
           <GalleryItem
             image={image}
