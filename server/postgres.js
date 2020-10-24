@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const postgres = require('../database/postgres.js');
 
@@ -10,6 +11,8 @@ const port = 9043;
 const app = express();
 
 app.use(express.static(DIST_DIR));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // FOR POSTGRES
 // READ
@@ -26,15 +29,10 @@ app.get('/products/:pid', (req, res) => {
   });
 });
 
-// app.get('/products/:pid', (req, res) => {
-//   const { pid } = req.params;
-//   postgres.getGallery(pid)
-//     .then((result) => { res.stats(200).send(result); })
-//     .catch((err) => { res.status(400).send(err); });
-// });
-
 // CREATE
-app.post('/products', (req, res) => {
+app.post('/products/:pid', (req, res) => {
+  const { pid } = req.params;
+  console.log('POST REQ : ', req.body);
   res.status(200).send('POST request');
   console.log('POST request for product');
 });
