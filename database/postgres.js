@@ -18,14 +18,13 @@ const getGallery = (pid, callback) => {
 };
 
 const addGalleryItem = (pid, item, callback) => {
-  // pool.query(`Update products SET gallery = gallery || '{"id": 12, "image": "https://unzwillingimg.s3-us-west-1.amazonaws.com/images/main.jpg", "description":"THIS WORKED FOR REAL?"}' ::jsonb WHERE product_id = 1;`, item, (err, rows) => {
-  //   if (err) {
-  //     callback(err);
-  //   } else {
-  //     callback(null, rows);
-  //   }
-  // });
-  console.log('HAHAHAHAAHAHAHA : ', item);
+  pool.query(`Update products SET gallery = gallery || '${item}' ::jsonb WHERE product_id = ${pid}`, (err, rows) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, rows);
+    }
+  });
 };
 
 module.exports = {

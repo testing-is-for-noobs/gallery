@@ -32,9 +32,20 @@ app.get('/products/:pid', (req, res) => {
 // CREATE
 app.post('/products/:pid', (req, res) => {
   const { pid } = req.params;
-  console.log('POST REQ : ', req.body);
-  res.status(200).send('POST request');
-  console.log('POST request for product');
+  const { id, image, description } = req.body;
+  const item = { id, image, description };
+  const stringifiedItem = JSON.stringify(item);
+  // console.log('POST request for product');
+  // console.log('THIS IS ITEM : ', test);
+  // res.status(200).send('POST request');
+
+  postgres.addGalleryItem(pid, stringifiedItem, (err, result) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send(result);
+    }
+  });
 });
 
 // DELETE

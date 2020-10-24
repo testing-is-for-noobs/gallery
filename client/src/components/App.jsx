@@ -44,6 +44,8 @@ class App extends React.Component {
         this.setState({
           galleryImages: res.data[0].gallery,
           currentImage: res.data[0].gallery[0].image,
+        }, () => {
+          console.log(this.state.galleryImages);
         });
       }).catch((err) => {
         console.error('[FAILED] get request from App.jsx: ', err);
