@@ -5,3 +5,5 @@ yarn-error.log
 *.csv
 products.csv
 .eslintignore
+newrelic.js
+newrelic_agent.log

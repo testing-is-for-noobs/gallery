@@ -1,3 +1,4 @@
+require('newrelic');
 /* eslint-disable no-console */
 const path = require('path');
 const express = require('express');
@@ -35,9 +36,6 @@ app.post('/products/:pid', (req, res) => {
   const { id, image, description } = req.body;
   const item = { id, image, description };
   const stringifiedItem = JSON.stringify(item);
-  // console.log('POST request for product');
-  // console.log('THIS IS ITEM : ', test);
-  // res.status(200).send('POST request');
 
   postgres.addGalleryItem(pid, stringifiedItem, (err, result) => {
     if (err) {
