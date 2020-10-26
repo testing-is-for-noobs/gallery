@@ -19,11 +19,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // READ
 
 app.get('/products/:pid', (req, res) => {
-  const { pid } = req.params;
-  postgres.getGallery(pid, (err, result) => {
+  // const { pid } = req.params;
+  postgres.getGallery(req.params.pid, (err, result) => {
     if (err) {
       res.status(400).send(err);
-      console.log('POSTGRES GET REQUEST ERROR');
     } else {
       res.status(200).send(result);
     }
