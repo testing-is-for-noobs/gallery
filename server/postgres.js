@@ -29,8 +29,8 @@ app.get('/products/:pid', (req, res) => {
   });
 });
 
-// CREATE
-app.post('/products/:pid', (req, res) => {
+// UPDATE
+app.put('/products/:pid', (req, res) => {
   const { pid } = req.params;
   const { id, image, description } = req.body;
   const item = { id, image, description };
@@ -52,8 +52,8 @@ app.delete('/products/:pid', (req, res) => {
   console.log(`DELETE request for product ${id}`);
 });
 
-// UPDATE
-app.put('/products/:pid', (req, res) => {
+// CREATE
+app.post('/products/:pid', (req, res) => {
   const id = req.params.pid;
   res.status(200).send('PUT request');
   console.log(`PUT request for product ${id}`);

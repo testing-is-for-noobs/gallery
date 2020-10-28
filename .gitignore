@@ -7,3 +7,4 @@ products.csv
 .eslintignore
 newrelic.js
 newrelic_agent.log
+productsPostgres.csv.zip

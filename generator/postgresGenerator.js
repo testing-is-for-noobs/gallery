@@ -2,7 +2,7 @@
 const faker = require('faker');
 const fs = require('fs');
 
-const records = 10000000;
+const records = 1000000;
 const csv = fs.createWriteStream('productsPostgres.csv');
 csv.write('product_id|product_name|gallery\n');
 

@@ -1,2 +1,4 @@
 bundle.js
 k6-script.js
+newrelic.js
+newrelic_agent.log
