@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+require('newrelic');
+
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');

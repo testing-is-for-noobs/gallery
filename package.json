@@ -13,7 +13,8 @@
     "data:sql": "node generator/postgresGenerator.js",
     "data:cql": "node generator/cassandraGenerator.js",
     "seed:sql": "psql -f schema.sql",
-    "seed:cql": "cqlsh -f schema.cql"
+    "seed:cql": "cqlsh -f schema.cql",
+    "k6": "k6 run k6-script.js"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
     "axios": "^0.20.0",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
+    "body-parser": "^1.19.0",
     "cassandra-driver": "^4.6.0",
     "convert-array-to-csv": "^2.0.0",
     "enzyme": "^3.11.0",
@@ -55,6 +57,7 @@
     "jest": "^26.4.2",
     "mongoose": "^5.10.6",
     "morgan": "^1.10.0",
+    "newrelic": "^6.13.2",
     "nodemon": "^2.0.4",
     "pg": "^8.4.1",
     "pg-promise": "^10.7.0",

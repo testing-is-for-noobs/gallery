@@ -17,6 +17,17 @@ const getGallery = (pid, callback) => {
     .catch((err) => callback(err));
 };
 
+const addGalleryItem = (pid, item, callback) => {
+  pool.query(`Update products SET gallery = gallery || '${item}' ::jsonb WHERE product_id = ${pid}`, (err, rows) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, rows);
+    }
+  });
+};
+
 module.exports = {
   getGallery,
+  addGalleryItem,
 };
